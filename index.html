@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resizable block</title>
+
+    <style>
+        :root {
+            box-sizing: border-box;
+            --charcoal: #264653ff;
+            --persian-green: #2a9d8fff;
+            --orange-yellow-crayola: #e9c46aff;
+            --sandy-brown: #f4a261ff;
+            --burnt-sienna: #e76f51ff;
+            --light-black: hsl(0, 0%, 15%);
+
+            min-width: 100%;
+            min-height: 100%;
+            display: flex;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        body {
+            font-size: calc(1rem + .5vw);
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        header,
+        main {
+            max-width: 1080px;
+            margin: auto;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            /* display: flex;
+            flex-wrap: wrap;
+            margin: auto; */
+        }
+
+        .square {
+            float: left;
+            height: 8em;
+            width: 8em;
+            margin: .3em;
+            position: relative;
+            min-width: .8em;
+            min-height: .8em;
+            cursor: grab;
+        }
+
+        .square:nth-child(5n + 1),
+        .square:nth-child(5n + 1)>.square__corner {
+            background-color: var(--charcoal);
+        }
+
+        .square:nth-child(5n + 2),
+        .square:nth-child(5n + 2)>.square__corner {
+            background-color: var(--persian-green);
+        }
+
+        .square:nth-child(5n + 3),
+        .square:nth-child(5n + 3)>.square__corner {
+            background-color: var(--orange-yellow-crayola);
+        }
+
+        .square:nth-child(5n + 4),
+        .square:nth-child(5n + 4)>.square__corner {
+            background-color: var(--sandy-brown);
+        }
+
+        .square:nth-child(5n + 5),
+        .square:nth-child(5n + 5)>.square__corner {
+            background-color: var(--burnt-sienna);
+        }
+
+        .square__left-border {
+            height: 100%;
+            width: .5em;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: col-resize;
+        }
+
+        .square__bot-border {
+            height: .5em;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            cursor: row-resize;
+        }
+
+        .square__corner {
+            height: .7em;
+            width: .7em;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border: 1px solid var(--light-black);
+            cursor: all-scroll;
+            z-index: 1;
+        }
+
+        .line {
+            outline: 1px solid var(--light-black);
+        }
+
+        .line--vertical {
+            margin: 0.5em 0.25em;
+            width: 0;
+            height: calc(100% - 1em);
+        }
+
+        .line--horizontal {
+            margin: 0.25em 0.5em;
+            width: calc(100% - 1em);
+            height: 0;
+        }
+
+        .grabbing {
+            cursor: grabbing;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Resize the blocks!</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="square">
+                <div class="square__left-border" data-border="true">
+                    <div class="line line--vertical"></div>
+                </div>
+                <div class="square__bot-border" data-border="true">
+                    <div class="line line--horizontal"></div>
+                </div>
+                <div class="square__corner" data-border="true"></div>
+            </div>
+            <div class="square">
+                <div class="square__left-border" data-border="true">
+                    <div class="line line--vertical"></div>
+                </div>
+                <div class="square__bot-border" data-border="true">
+                    <div class="line line--horizontal"></div>
+                </div>
+                <div class="square__corner" data-border="true"></div>
+            </div>
+            <div class="square">
+                <div class="square__left-border" data-border="true">
+                    <div class="line line--vertical"></div>
+                </div>
+                <div class="square__bot-border" data-border="true">
+                    <div class="line line--horizontal"></div>
+                </div>
+                <div class="square__corner" data-border="true"></div>
+            </div>
+            <div class="square">
+                <div class="square__left-border" data-border="true">
+                    <div class="line line--vertical"></div>
+                </div>
+                <div class="square__bot-border" data-border="true">
+                    <div class="line line--horizontal"></div>
+                </div>
+                <div class="square__corner" data-border="true"></div>
+            </div>
+            <div class="square">
+                <div class="square__left-border" data-border="true">
+                    <div class="line line--vertical"></div>
+                </div>
+                <div class="square__bot-border" data-border="true">
+                    <div class="line line--horizontal"></div>
+                </div>
+                <div class="square__corner" data-border="true"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./script.js" defer></script>
+</body>
+
+</html>
